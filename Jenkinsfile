@@ -1,40 +1,46 @@
+
 pipeline {
     agent any
 
     stages {
         stage('Build') {
             steps {
-                sh 'mvn clean package'
+                sh 'echo "Building the project..."'
+                // Add build commands here (e.g., 'mvn clean package' for Maven projects)
             }
         }
 
-        stage('Unit Tests') {
+        stage('Test') {
             steps {
-                sh 'mvn test'
+                sh 'echo "Running unit tests..."'
+                // Add test commands here (e.g., 'mvn test' for Maven projects)
             }
         }
 
-        stage('Archive') {
+        stage('Archive Artifacts') {
             steps {
-                archiveArtifacts 'target/*.jar'
+                sh 'echo "Archiving build artifacts..."'
+                archiveArtifacts 'target/*.jar' // Example: Archive all JAR files in the 'target' directory
             }
         }
 
         stage('Deploy to Staging') {
             when {
-                branch 'staging'
+                branch 'master' 
             }
             steps {
-                // Add deployment steps for the staging environment here
+                sh 'echo "Deploying to staging environment..."'
+                
             }
         }
 
         stage('Deploy to Production') {
             when {
-                branch 'production'
+                branch 'develop' 
             }
             steps {
-                // Add deployment steps for the production environment here
+                sh 'echo "Deploying to production environment..."'
+                
             }
         }
     }
