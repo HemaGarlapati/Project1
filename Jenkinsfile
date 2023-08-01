@@ -1,5 +1,5 @@
 BASIC COMMANDS
-pwd (Present working directory)
+pwd 
 ls  (Lists content in the pwd)
 cd  (Change directory)
   eg: cd /home/ubuntu/
