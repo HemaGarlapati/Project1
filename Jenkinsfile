@@ -20,7 +20,7 @@ pipeline {
         stage('Archive Artifacts') {
             steps {
                 sh 'echo "Archiving build artifacts..."'
-             //   archiveArtifacts artifacts: '**/*.jar', fingerprint: true // Example: Archive all JAR files in the 'target' directory
+             
             }
         }
 
